@@ -1,4 +1,4 @@
-import configStyles from './config-style.js'; 
+import configStyles from '../../banner-radium/style/config-style.js'
 
 export default {
   root: {

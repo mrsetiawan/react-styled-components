@@ -11,15 +11,41 @@ class Main extends Component {
     super(props)
 
     this.state = {
-      data: ''
+      showIndex: 0,
+      numSlide: 5
     }
+  }
+
+  onPrevious = () => {
+    this.setState({
+      showIndex: Math.max(this.state.showIndex - 1, 0)
+    })
+  }
+
+  onNext = () => {
+    this.setState({
+      showIndex: Math.min(this.state.showIndex + 1, this.state.numSlides - 1)
+    });
+  }
+
+  controlButton = () => {
+    return (
+       <CarouselControl
+        prev={this.onPrevious}
+        next={this.onNext}
+        hasPrev={this.onPrevious}
+        hasNext={this.state.showIndex < this.state.numSlide -1}
+      />
+    )
   }
 
   render() {
     return (
       <Frame>
         <Carousel
-          width={configStyles.root}
+          showIndex={this.state.showIndex}
+          width={configStyles.imageWidth}
+          control={this.controlButton()}
         />
         <SlideDescription
           image={imageSlide1}
@@ -29,6 +55,7 @@ class Main extends Component {
           Wars: The Clone Wars these days. Between Wii Lightsaber Duels to the
           Star Wars Lego set that took he and Micheal three hours to assemble.
         </SlideDescription>
+
       </Frame>
     )
   }
