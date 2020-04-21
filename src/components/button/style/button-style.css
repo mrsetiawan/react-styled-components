@@ -1,0 +1,14 @@
+.my-button__btn div{
+  width: var(--w-100);
+  display: var(--d-flex);
+}
+
+.my-button__btn button{
+  flex: 1;
+  padding: 20px;
+  color: var(--AliceBlue);
+  background-color: var(--BlueViolet);
+  margin: 50px auto;
+  outline: none;
+  border: 0;
+}
